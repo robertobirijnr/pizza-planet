@@ -39,10 +39,11 @@ import firebase from "firebase";
         .auth()
         .signInWithEmailAndPassword(this.user.email, this.user.password)
         .then(() => {
+            this.$toasted.success("login successfully")
             this.$router.push('/admin')
         })
         .catch((error) => {
-          alert(error.message);
+          this.$toasted.danger(error.message);
         });
     }
         }

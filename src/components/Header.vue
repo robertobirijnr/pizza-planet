@@ -20,6 +20,9 @@
       <li class="nav-item">
         <router-link class="nav-link" to="/login">Admin</router-link>
       </li>
+      <li class="nav-item">
+        <router-link @click="Logout" class="nav-link" to="/login">Logout</router-link>
+      </li>
       
     </ul>
     
@@ -27,6 +30,23 @@
   </div>
 </nav>
 </template>
+
+<script>
+import firebase from "firebase";
+export default {
+    methods:{
+        Logout(){
+            firebase.auth().signOut().then(function(){
+                this.$toasted.info("Logout successfully")
+                this.$router.push('/')
+            }).catch(err=>{
+                this.$toasted.danger(err)
+            })
+        }
+    }
+    
+}
+</script>
 
 
 <style scoped>
