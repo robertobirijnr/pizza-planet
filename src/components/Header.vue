@@ -12,10 +12,13 @@
         <router-link class="nav-link" to="/">Home <span class="sr-only">(current)</span></router-link>
       </li>
       <li class="nav-item">
-        <router-link class="nav-link" to="/menu">Menu</router-link>
+        <router-link class="nav-link" to="/menu"> Menu</router-link>
       </li>
+      <!-- <li class="nav-item">
+        <router-link class="nav-link" to="/register">Register</router-link>
+      </li> -->
       <li class="nav-item">
-        <router-link class="nav-link" to="/admin">Admin</router-link>
+        <router-link class="nav-link" to="/login">Admin</router-link>
       </li>
       
     </ul>

@@ -66,6 +66,7 @@ import {dbMenuRef} from '../firebaseConfig'
         methods:{
             addMenuItem(){
                 dbMenuRef.push(this.newPizza)
+                this.$toasted.success("menu added successfully")
             }
         }
     }
