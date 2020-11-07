@@ -90,7 +90,7 @@
                        'description':"  Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum dignissimos similique odit necessitatibus hic doloremque, minima nostrum reiciendis repudiandae a quos iste officia, maiores odio! Temporibus excepturi sed laborum a.",
                         'options':[{
                           'size':9,
-                          'price':7.95
+                          'price':7.95 
                       },{
                           'size':12,
                           'price':12.95
