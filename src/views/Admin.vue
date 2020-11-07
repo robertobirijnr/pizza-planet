@@ -36,7 +36,7 @@
                </thead>
                <tbody>
                    <div class="order-number">
-                       <strong><em>Order Number: 1</em></strong>
+                       <strong><em>Order Number: {{numberOfOrders}}</em></strong>
                        <button class="btn btn-outline-danger btn-sm">X</button>
                    </div>
                    <tr>
@@ -60,7 +60,11 @@ import AddPizza from '@/components/addPizza'
        components:{
            AddPizza
        } ,
-       computed:mapState(['MenuItems'])
+       computed:{
+           numberOfOrders(){
+               return this.$store.getters.getOrders
+           },
+           ...mapState(['MenuItems'])}
     }
 </script>
 

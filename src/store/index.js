@@ -38,13 +38,19 @@ export default new Vuex.Store({
               'size':12,
               'price':12.95
           }]
-      }
+      },
+      oders:[],
   }
   },
   mutations: {
+    ADD_ORDERS:(state,order)=>{
+      state.oders.push(order)
+    }
   },
   actions: {
   },
-  modules: {
+  getters: {
+    getMenuItems: state => state.MenuItems[1],
+    getOrders:state => state.oders.length
   }
 })
