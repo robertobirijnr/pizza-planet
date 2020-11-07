@@ -36,7 +36,7 @@
                </thead>
                <tbody>
                    <div class="order-number">
-                       <strong><em>Order Number: {{numberOfOrders}}</em></strong>
+                       <strong><em>Order Number: </em></strong>
                        <button class="btn btn-outline-danger btn-sm">X</button>
                    </div>
                    <tr>
@@ -48,6 +48,7 @@
                </tbody>
            </table>
        </div>
+       {{getCurrentUser}}
            </div>
        </div>
     
@@ -56,13 +57,26 @@
 <script>
 import {mapState}  from 'vuex';
 import AddPizza from '@/components/addPizza'
+import store from '../store/index.js'
+import firebase from "firebase";
+
+firebase.auth().onAuthStateChanged(function(user){
+    if(user){
+        store.dispatch('getLoginUser',user)
+    }else{
+        store.dispatch('getLoginUser',null)
+    }
+})
     export default {
        components:{
            AddPizza
        } ,
        computed:{
-           numberOfOrders(){
-               return this.$store.getters.getOrders
+        //    numberOfOrders(){
+        //        return this.$store.getters.getOrders
+        //    },
+           getCurrentUser(){
+               return this.$store.getters.getLoginUser
            },
            ...mapState(['MenuItems'])}
     }

@@ -39,18 +39,30 @@ export default new Vuex.Store({
               'price':12.95
           }]
       },
-      oders:[],
+      orders:[],
+      currentUser:'',
   }
   },
   mutations: {
     ADD_ORDERS:(state,order)=>{
-      state.oders.push(order)
+      state.orders.push(order)
+    },
+    SET_USER:(state,user)=>{
+      if(user){
+        state.currentUser = user
+      }else{
+        state.currentUser = null
+      }
     }
   },
   actions: {
+    getLoginUser({commit},user){
+      commit('SET_USER',user)
+    }
   },
   getters: {
-    getMenuItems: state => state.MenuItems[1],
-    getOrders:state => state.oders.length
+    getMenuItems: state => state.MenuItems,
+    getOrders:state => state.orders.length,
+    getLoginUser:state => state.currentUser
   }
 })
