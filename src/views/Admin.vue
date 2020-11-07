@@ -13,9 +13,9 @@
                        <th>Remove From menu</th>
                    </tr>
                </thead>
-               <tbody>
+               <tbody v-for="item in MenuItems" :key="item.index">
                    <tr>
-                       <td>Margherita</td>
+                       <td>{{item.name}}</td>
                        <td><button class="btn btn-outline-danger btn-sm">X</button></td>
                    </tr>
                </tbody>
@@ -54,11 +54,13 @@
 </template>
 
 <script>
+import {mapState}  from 'vuex';
 import AddPizza from '@/components/addPizza'
     export default {
        components:{
            AddPizza
-       } 
+       } ,
+       computed:mapState(['MenuItems'])
     }
 </script>
 

@@ -11,7 +11,7 @@
                       
                     </tr>
                 </thead>
-                <tbody v-for="item in getMenuItems" :key="item.index">
+                <tbody v-for="item in MenuItems" :key="item.index">
                     <tr>
                         <td><strong>{{item.name}}</strong></td>
                     </tr>
@@ -58,47 +58,15 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
     export default {
         data() {
             return {
                 basket:[],
-              getMenuItems:{
-                  1:{
-                      'name':"Margherita",
-                      'description':"  Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum dignissimos similique odit necessitatibus hic doloremque, minima nostrum reiciendis repudiandae a quos iste officia, maiores odio! Temporibus excepturi sed laborum a.",
-                      'options':[{
-                          'size':9,
-                          'price':6.95
-                      },{
-                          'size':12,
-                          'price':10.95
-                      }]
-                  },
-                  2:{
-                      'name':"Pepperoni",
-                       'description':"  Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum dignissimos similique odit necessitatibus hic doloremque, minima nostrum reiciendis repudiandae a quos iste officia, maiores odio! Temporibus excepturi sed laborum a.",
-                        'options':[{
-                          'size':9,
-                          'price':7.95
-                      },{
-                          'size':12,
-                          'price':12.95
-                      }]
-                  },
-                  3:{
-                      'name':"Ham and Pineapple",
-                       'description':"  Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum dignissimos similique odit necessitatibus hic doloremque, minima nostrum reiciendis repudiandae a quos iste officia, maiores odio! Temporibus excepturi sed laborum a.",
-                        'options':[{
-                          'size':9,
-                          'price':7.95 
-                      },{
-                          'size':12,
-                          'price':12.95
-                      }]
-                  }
-              }
+              
             }
         },
+        computed:mapState(['MenuItems']),
         methods:{
             addPizza(item,option){
                 this.basket.push({
